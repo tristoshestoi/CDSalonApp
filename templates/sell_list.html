@@ -1,0 +1,29 @@
+{% extends 'base_page.html' %}
+
+{% block title %}
+Продажи
+{% endblock %}
+
+{% block content %}
+
+{% for data in dataset %}
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Дата</th>
+      <th scope="col">Цена</th>
+      <th scope="col">Название</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ data.op_date }}</td>
+      <td>{{ data.price }}</td>
+      <td>{{ data.CD_id.name }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
+
+
+{% endblock %}

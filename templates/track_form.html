@@ -1,0 +1,14 @@
+{% extends 'base_page.html' %}
+
+{% block title %}
+Добавить трек
+{% endblock %}
+
+{% block content %}
+    <div class="main" style="margin-left: 40px">
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit">
+    </div>
+{% endblock %}

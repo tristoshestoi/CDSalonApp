@@ -1,0 +1,17 @@
+{% extends "base_page.html" %}
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+{% block content %}
+
+  <form action="" method="post">
+      {% csrf_token %}
+      <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+      <div class="main" style="margin-left: 40px">
+      {{ form.as_p }}
+      <button type="submit">Register</button>
+          </div>
+    </form>
+{% endblock %}

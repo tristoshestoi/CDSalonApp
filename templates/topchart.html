@@ -1,0 +1,38 @@
+{% extends 'base_page.html' %}
+
+{% block title %}
+Топ-чарт
+{% endblock %}
+
+
+{% block content %}
+    <div class = "main" style="border: 4px solid #000d1a; padding: 10px; display: block; margin: 0 auto; width: max-content; background: #000d1a; color: white; border-radius: 10px; font-size: 150%">
+{% for data in dataset %}
+     <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col" >Название</th>
+      <th scope="col">Исполнитель</th>
+      <th scope="col">Жанр</th>
+        <th scope="col">Количество проданных пластинок</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+
+      <td>{{ data.album_name }}</td>
+      <td>{{ data.performer }}</td>
+      <td>{{ data.genre }}</td>
+        <td>{{ data.tmp }}</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endfor %}
+</div>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,41 @@
+{% extends 'base_page.html' %}
+
+{% block title %}
+Информация
+{% endblock %}
+
+
+{% block content %}
+    <h2 style="margin-left: 40px">
+    Альбомы
+    </h2>
+{% for data in dataset %}
+
+
+
+<div class="card bg-dark text-white" style="width: 25rem; margin-left: 40px">
+  <div class="card-body">
+    <h5 class="card-title">Название альбома: {{ data.Album_id.album_name }}<br/></h5>
+    <p class="card-text">
+        Жанр: {{ data.Album_id.genre }}
+        <br/>
+        Количество треков: {{ data.Album_id.track_amount }}
+        <br/>
+        Длительность: {{ data.Album_id.length }} минут
+        <br/>
+        Дата выхода: {{ data.Album_id.out_date }}
+
+
+    </p>
+       </a>
+  </div>
+</div>
+<br/>
+
+    </form>
+{% endfor %}
+
+{% endblock %}
+
+
+

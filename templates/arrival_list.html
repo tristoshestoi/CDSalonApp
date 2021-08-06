@@ -1,0 +1,42 @@
+{% extends 'base_page.html' %}
+
+{% block title %}
+Поступления
+{% endblock %}
+
+{% block content %}
+
+{% for data in dataset %}
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Дата</th>
+        {% if user.is_authenticated and user.is_staff %}
+      <th scope="col">Цена</th>
+        {% endif %}
+      <th scope="col">Название</th>
+    {% if user.is_authenticated and user.is_staff %}
+        <th scope="col">Поставщик</th>
+    {% endif %}
+        <th scope="col">Количество</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ data.op_date }}</td>
+        {% if user.is_authenticated and user.is_staff %}
+      <td>{{ data.price }}</td>
+        {% endif %}
+      <td>{{ data.CD_id.name }}</td>
+    {% if user.is_authenticated and user.is_staff %}
+        <td>{{ data.supplier }}</td>
+    {% endif %}
+        <td>{{ data.amount }}</td>
+
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
+
+
+{% endblock %}

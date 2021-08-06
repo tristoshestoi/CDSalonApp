@@ -1,0 +1,44 @@
+{% extends 'base_page.html' %}
+
+{% block title %}
+Купить <компакт></компакт>
+{% endblock %}
+
+
+{% block content %}
+{% for data in dataset %}
+<form action="" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="card bg-dark text-white" style="width: 25rem; margin-left: 40px">
+  <div class="card-body">
+    <h5 class="card-title">{{ data.name }}<br/></h5>
+    <p class="card-text">
+        Звукозаписыващая компания: {{ data.company_id.name }}
+        <br/>
+        Цена: {{ data.price }} р.
+        <br/>
+        Количество: {{ data.cou }}
+        <br/>
+    </p>
+      {% if  data.cou  > 0 %}
+        <a href="cds/{{ data.id }}/" class="btn btn-primary">
+        Купить
+            {% else %}
+            <a class="btn btn-secondary" >
+        Нет в наличии
+                {% endif %}
+       </a>
+      <a href="cdinfo/{{ data.id }}/" class="btn btn-secondary">
+        Подробнее
+       </a>
+  </div>
+</div>
+<br/>
+
+    </form>
+{% endfor %}
+
+{% endblock %}
+
+
+

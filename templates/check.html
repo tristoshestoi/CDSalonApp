@@ -1,0 +1,31 @@
+{% extends 'base_page.html' %}
+
+{% block title %}
+Подтверждение
+{% endblock %}
+
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="card" style="width: 18rem; margin-left: 40px">
+  <div class="card-body">
+    <h5 class="card-title">Детали заказа: <br/></h5>
+    <p class="card-text">Название: {{ poll.name }}
+        <br/>
+        Цена: {{ poll.price }} р.
+    </p>
+        <input type="hidden" name="price" value={{ poll.price }} />
+        <input type="hidden" name="cd_id" value={{ poll.id }} />
+        <input type="submit" value="Купить"/>
+
+        </a>
+  </div>
+</div>
+</form>
+
+
+{% endblock %}
+
+
+

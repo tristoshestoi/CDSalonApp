@@ -1,0 +1,32 @@
+{% extends 'base_page.html' %}
+
+{% block title %}
+Треки
+{% endblock %}
+
+{% block content %}
+
+{% for data in dataset %}
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Название</th>
+      <th scope="col">Автор</th>
+      <th scope="col">Исполнитель</th>
+      <th scope="col">Альбом</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ data.track_name }}</td>
+      <td>{{ data.author }}</td>
+      <td>{{ data.performer }}</td>
+        <td>{{ data.album_id.album_name }}</td>
+
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
+
+
+{% endblock %}
